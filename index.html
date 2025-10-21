@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Completo de Pilotagem e Manutenção de Drones</title>
+    <title>Manual Completo de Drones | Do Básico ao Avançado</title>
+    <meta name="description" content="Um manual completo com tudo o que você precisa saber sobre a anatomia, pilotagem, e manutenção de drones, do básico ao avançado.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,419 +14,407 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        .module-card {
-            scroll-margin-top: 80px;
+        .view {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
         }
-        /* Estilo para a barra de rolagem */
-        ::-webkit-scrollbar {
-            width: 8px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+        .post-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+        section h3 {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-100 text-slate-800">
 
-    <div class="flex min-h-screen">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-white border-r border-slate-200 p-6 fixed h-full hidden lg:block">
-            <h1 class="text-xl font-bold text-slate-900 mb-6">Curso de Drones</h1>
-            <nav>
-                <ul class="space-y-2">
-                    <li><a href="#modulo-1" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 1: Introdução</a></li>
-                    <li><a href="#modulo-2" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 2: Anatomia</a></li>
-                    <li><a href="#modulo-3" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 3: Voo</a></li>
-                    <li><a href="#modulo-4" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 4: Pilotagem</a></li>
-                    <li><a href="#modulo-5" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 5: Manutenção</a></li>
-                    <li><a href="#modulo-6" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 6: Reparos</a></li>
-                    <li><a href="#modulo-7" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 7: Software</a></li>
-                    <li><a href="#modulo-8" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 8: Leis</a></li>
-                    <li><a href="#modulo-9" class="flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 9: Prática</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <div class="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8">
+        <main id="app">
 
-        <!-- Botão de menu para mobile -->
-        <button id="menu-button" class="lg:hidden fixed bottom-4 right-4 bg-sky-600 text-white p-3 rounded-full shadow-lg z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-        </button>
+            <!-- Home View (Blog Index) -->
+            <div id="home-view" class="view">
+                <header class="mb-12 text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">Manual Completo de Drones</h1>
+                    <p class="mt-4 text-lg text-slate-600">Seu guia definitivo, do básico ao avançado, sobre o universo dos VANTs.</p>
+                </header>
 
-        <!-- Menu mobile (overlay) -->
-        <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40">
-            <div class="fixed inset-y-0 left-0 w-64 bg-white p-6">
-                 <h1 class="text-xl font-bold text-slate-900 mb-6">Curso de Drones</h1>
-                <nav>
-                    <ul class="space-y-2">
-                        <li><a href="#modulo-1" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 1: Introdução</a></li>
-                        <li><a href="#modulo-2" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 2: Anatomia</a></li>
-                        <li><a href="#modulo-3" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 3: Voo</a></li>
-                        <li><a href="#modulo-4" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 4: Pilotagem</a></li>
-                        <li><a href="#modulo-5" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 5: Manutenção</a></li>
-                        <li><a href="#modulo-6" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 6: Reparos</a></li>
-                        <li><a href="#modulo-7" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 7: Software</a></li>
-                        <li><a href="#modulo-8" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 8: Leis</a></li>
-                        <li><a href="#modulo-9" class="mobile-link flex items-center text-slate-600 hover:text-sky-600 hover:font-semibold transition-all duration-200"><span class="w-2 h-2 rounded-full bg-slate-300 mr-3"></span>Módulo 9: Prática</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Post Card 0: O que é um Drone? -->
+                    <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone1.jpg" alt="[Imagem de um diagrama de drone com seus principais componentes externos legendados]" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 1: O que é um Drone?</h2>
+                            <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Aprenda a definição de um drone (VANT), seu funcionamento básico e os principais tipos e aplicações que revolucionam o mercado.</p>
+                            <button onclick="showPage('module-0-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
+                        </div>
+                    </div>
 
-        <!-- Conteúdo Principal -->
-        <main class="lg:ml-64 flex-1 p-6 md:p-8 lg:p-12">
-            <header class="mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">Curso Completo de Pilotagem e Manutenção de Drones</h1>
-                <p class="mt-4 text-lg text-slate-600">Do básico ao avançado: domine a arte de pilotar e cuidar do seu equipamento.</p>
-            </header>
+                    <!-- Post Card 2 -->
+                    <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone2.jpg" alt="[Imagem de uma vista explodida de um drone mostrando todos os componentes internos]" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 2: Anatomia do Drone</h2>
+                            <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Mergulhe na anatomia detalhada de um drone. Conheça a fundo cada componente interno, do frame à controladora de voo.</p>
+                             <button onclick="showPage('module-2-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
+                        </div>
+                    </div>
 
-            <!-- Módulo 1 -->
-            <section id="modulo-1" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 1: Introdução aos Drones</h2>
-                <div class="space-y-6 text-slate-700 leading-relaxed">
-                    <h3 class="text-xl font-semibold text-slate-800">1.1 Histórico e Evolução</h3>
-                    <p>Os drones, ou Veículos Aéreos Não Tripulados (VANTs), têm sua origem em aplicações militares, mas evoluíram rapidamente. A miniaturização de componentes eletrônicos e a redução de custos permitiram sua popularização para uso comercial e recreativo a partir dos anos 2010, transformando indústrias como a de fotografia, agricultura e logística.</p>
+                    <!-- Post Card 3 -->
+                    <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone2.jpg" alt="[Imagem de um diagrama das quatro forças do voo: sustentação, peso, empuxo e arrasto]" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 3: Pilotagem e Voo</h2>
+                            <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Domine os princípios aerodinâmicos e os comandos essenciais para uma pilotagem precisa e segura em diferentes modos de voo.</p>
+                            <button onclick="showPage('module-3-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
+                        </div>
+                    </div>
                     
-                    <h3 class="text-xl font-semibold text-slate-800 mt-6">1.2 Tipos de Drones</h3>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-slate-100">
-                                    <th class="p-4 font-semibold">Tipo de Drone</th>
-                                    <th class="p-4 font-semibold">Vantagens</th>
-                                    <th class="p-4 font-semibold">Aplicações Comuns</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b border-slate-200">
-                                    <td class="p-4 font-medium text-slate-900">Multi-rotor</td>
-                                    <td class="p-4">Voo estável, decolagem e pouso vertical (VTOL), fácil de manobrar.</td>
-                                    <td class="p-4">Fotografia, filmagem, inspeções, lazer.</td>
-                                </tr>
-                                <tr class="border-b border-slate-200">
-                                    <td class="p-4 font-medium text-slate-900">Asa Fixa</td>
-                                    <td class="p-4">Maior autonomia, velocidade e eficiência para cobrir grandes áreas.</td>
-                                    <td class="p-4">Mapeamento aéreo, agricultura, vigilância.</td>
-                                </tr>
-                                <tr class="border-b border-slate-200">
-                                    <td class="p-4 font-medium text-slate-900">Single-Rotor</td>
-                                    <td class="p-4">Grande capacidade de carga, voo eficiente e longa autonomia.</td>
-                                    <td class="p-4">Transporte de cargas, pulverização agrícola.</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-4 font-medium text-slate-900">Híbrido VTOL</td>
-                                    <td class="p-4">Combina VTOL com a eficiência de uma asa fixa.</td>
-                                    <td class="p-4">Entregas de longa distância, mapeamento.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <!-- New Post Card 4 -->
+                    <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone3.jpg" alt="[Imagem de um controle remoto de drone com comandos destacados]" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 4: Comandos do Controle</h2>
+                            <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Desvende os termos em inglês e as funções de cada joystick e botão do controle remoto do drone para uma operação segura.</p>
+                            <button onclick="showPage('module-7-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
+                        </div>
                     </div>
 
-                    <h3 class="text-xl font-semibold text-slate-800 mt-6">1.3 Aplicações</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-slate-100 p-4 rounded-lg">Audiovisual: Produção de filmes, cobertura de eventos e fotografia.</div>
-                        <div class="bg-slate-100 p-4 rounded-lg">Agricultura de Precisão: Monitoramento de safras e aplicação de defensivos.</div>
-                        <div class="bg-slate-100 p-4 rounded-lg">Inspeção e Monitoramento: Análise de linhas de energia, turbinas eólicas e estruturas.</div>
-                        <div class="bg-slate-100 p-4 rounded-lg">Segurança: Vigilância de perímetros e acompanhamento de equipes.</div>
-                        <div class="bg-slate-100 p-4 rounded-lg">Logística e Entregas: Transporte de medicamentos e mercadorias.</div>
-                        <div class="bg-slate-100 p-4 rounded-lg">Mapeamento e Topografia: Criação de modelos 3D de terrenos.</div>
+                    <!-- Post Card 5 (originally 4) -->
+                    <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone3.jpg" alt="[Imagem de um close-up da placa controladora de voo e seus sensores]" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 5: Estabilidade e Eletrônica</h2>
+                            <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Entenda a eletrônica por trás da estabilidade, a função dos sensores e como o centro de gravidade afeta o voo.</p>
+                            <button onclick="showPage('module-5-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Post Card 6 (originally 5) -->
+                    <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                         <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone4.jpg" alt="[Imagem de uma mão inspecionando a hélice de um drone]" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 6: Manutenção e Baterias</h2>
+                            <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Aprenda a cuidar do seu equipamento com checklists de manutenção, como calcular a autonomia e as melhores práticas de uso de baterias LiPo.</p>
+                            <button onclick="showPage('module-4-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
+                        </div>
+                    </div>
+
+                    <!-- Post Card 7 (originally 6) -->
+                    <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone5.jpg" alt="[Imagem de cones de treinamento no chão com um drone pairando acima]" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 7: Exercícios Práticos</h2>
+                            <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Coloque a teoria em prática com exercícios essenciais para aprimorar suas habilidades, desde o pairado até manobras avançadas.</p>
+                            <button onclick="showPage('module-6-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
+                        </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Módulo 2 -->
-            <section id="modulo-2" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 2: Anatomia do Drone</h2>
-                <p class="mb-8 text-slate-700 leading-relaxed">Conhecer cada componente é fundamental para a manutenção e diagnóstico de problemas. As imagens abaixo são baseadas em diagramas técnicos de manuais de drones populares, como o Mavic Pro.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Component Card: Motores e Hélices -->
-                    <div class="border border-slate-200 p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-xl mb-4 text-slate-800">Motores e Hélices</h3>
-                        <img src="https://drones.fscl.org/wp-content/uploads/2017/02/mavic-props.jpg" alt="Diagrama de montagem das hélices do manual" class="w-full rounded-lg mb-4 shadow-sm object-cover">
-                        <p class="text-slate-600 flex-grow">Os **motores brushless** (sem escovas) giram as **hélices** para gerar empuxo. As hélices com **anel branco** devem ser conectadas aos motores com **marcas brancas**, e as desmarcadas nos motores sem marcas. Pressione e gire na direção de travamento para instalar.</p>
-                    </div>
-
-                    <!-- Component Card: Bateria de Voo Inteligente -->
-                    <div class="border border-slate-200 p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-xl mb-4 text-slate-800">Bateria de Voo Inteligente</h3>
-                        <img src="https://www.weare-dji.com/wp-content/uploads/2021/04/caracteristiques-batterie-mavic-pro-1024x512.jpg" alt="Diagrama da bateria de voo do manual" class="w-full rounded-lg mb-4 shadow-sm object-cover">
-                        <p class="text-slate-600 flex-grow">Geralmente de **LiPo** (Polímero de Lítio), fornece a energia para todo o sistema. Para ligar, pressione o botão uma vez, e depois pressione e segure por 2 segundos. Os LEDs indicam o nível de carga atual.</p>
-                    </div>
-
-                    <!-- Component Card: Câmera e Gimbal -->
-                    <div class="border border-slate-200 p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-xl mb-4 text-slate-800">Câmera e Gimbal</h3>
-                        <img src="Gemini_Generated_Image_v24pokv24pokv24p.png" alt="Diagrama da câmera e gimbal do manual" class="w-full rounded-lg mb-4 shadow-sm object-cover">
-                        <p class="text-slate-600 flex-grow">A **câmera** captura as imagens, enquanto o **Gimbal**, um suporte motorizado de 3 eixos, a estabiliza. Ele corrige os movimentos e vibrações do drone, garantindo vídeos suaves e fotos nítidas. Permite também controlar a inclinação da câmera remotamente durante o voo.</p>
-                    </div>
-
-                    <!-- Component Card: Placa Controladora e Sensores -->
-                    <div class="border border-slate-200 p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-xl mb-4 text-slate-800">Placa Controladora e Sensores</h3>
-                        <img src="https://www.researchgate.net/profile/Juan-Nieto-11/publication/322047879/figure/fig2/AS:631652878413840@1527609187979/Figura-1-Diagrama-de-componentes-del-drone.png" alt="Ilustração da placa controladora e sensores" class="w-full rounded-lg mb-4 shadow-sm object-cover">
-                        <p class="text-slate-600 flex-grow">A **Placa Controladora de Voo (FC)** é o "cérebro" do drone. Ela processa dados de múltiplos **sensores**, como a **IMU** (giroscópio e acelerômetro) para estabilidade e o **GPS** para posicionamento, permitindo funções como o "Return to Home" e voo estacionário preciso.</p>
-                    </div>
-                     <!-- Component Card: Frame e Trem de Pouso -->
-                    <div class="border border-slate-200 p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-xl mb-4 text-slate-800">Frame e Trem de Pouso</h3>
-                        <img src="https://robu.in/wp-content/uploads/2018/10/robu-23.jpg" alt="Ilustração do frame e trem de pouso do drone" class="w-full rounded-lg mb-4 shadow-sm object-cover">
-                        <p class="text-slate-600 flex-grow">O **Frame** é o chassi que sustenta todos os componentes. Pode ser de plástico, fibra de carbono ou outros materiais. O **Trem de Pouso** oferece uma base estável para decolagem e pouso, protegendo a câmera e os sensores do contato com o solo.</p>
-                    </div>
-                     <!-- Component Card: ESC e Receptor -->
-                    <div class="border border-slate-200 p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-xl mb-4 text-slate-800">ESC e Receptor (RX)</h3>
-                        <img src="https://oscarliang.com/wp-content/uploads/2015/03/esc-bec-ubec-sbec-opto-overview-diagram.jpg" alt="Ilustração do ESC e Receptor" class="w-full rounded-lg mb-4 shadow-sm object-cover">
-                        <p class="text-slate-600 flex-grow">O **ESC (Controlador de Velocidade)** regula a potência enviada a cada motor, conforme os comandos da Placa Controladora. O **Receptor (RX)** recebe os sinais do controle remoto e os transmite para a Placa Controladora, permitindo o comando do drone.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Módulo 3 -->
-            <section id="modulo-3" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 3: Princípios de Voo e Funcionamento</h2>
-                <img src="https://i.pinimg.com/originals/e8/34/43/e83443a5951a8a02c5e533f81cb4369e.jpg" alt="Fluxo de Comando" class="w-full rounded-lg mb-8 shadow-md">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-700">
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Controles de Movimento</h3>
-                        <ul class="space-y-3 list-disc list-inside">
-                            <li><span class="font-semibold">Subir/Descer:</span> Aumentar ou diminuir a velocidade de todos os motores igualmente.</li>
-                            <li><span class="font-semibold">Girar (Yaw):</span> Alterar a velocidade de pares de motores diagonais.</li>
-                            <li><span class="font-semibold">Inclinar (Pitch/Roll):</span> Aumentar a velocidade dos motores de um lado ou de trás.</li>
-                        </ul>
-                    </div>
-                     <div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Princípios Físicos</h3>
-                        <ul class="space-y-3 list-disc list-inside">
-                            <li><span class="font-semibold">Sustentação:</span> Força das hélices que vence o peso.</li>
-                            <li><span class="font-semibold">Peso:</span> Força da gravidade.</li>
-                            <li><span class="font-semibold">Empuxo:</span> Força que move o drone horizontalmente.</li>
-                            <li><span class="font-semibold">Arrasto:</span> Resistência do ar contra o movimento.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            </div>
             
-            <!-- Módulo 4 -->
-            <section id="modulo-4" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 4: Pilotagem Básica e Avançada</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">4.1 Comandos do Controle (Modo 2)</h3>
-                        <img src="https://i0.wp.com/www.thedronegirl.com/wp-content/uploads/2016/11/Screen-Shot-2016-11-28-at-12.00.08-PM.png" alt="Comandos do Controle Remoto" class="w-full rounded-lg mb-4 shadow-md">
-                        <div class="space-y-4">
+            <!-- Module 0 View -->
+            <div id="module-0-view" class="view">
+                <button onclick="showPage('home-view')" class="mb-8 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Voltar
+                </button>
+                <article class="bg-white p-8 rounded-2xl shadow-sm space-y-8 text-slate-700 leading-relaxed">
+                    <h2 class="text-3xl font-bold text-slate-900">Módulo 1: O que é um Drone?</h2>
+                    <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone6.jpg" alt="[Imagem de um diagrama detalhado de drone com legendas]" class="w-full rounded-lg shadow-md">
+                    
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Definição e Funcionamento</h3>
+                        <p>Um drone, tecnicamente conhecido como VANT (Veículo Aéreo Não Tripulado) ou RPAS (Aeronave Remotamente Pilotada), é uma aeronave sem piloto a bordo, controlada de forma remota ou através de softwares de voo autônomo. Embora existam em vários formatos, os mais populares são os quadricópteros, que utilizam quatro motores para gerar a sustentação necessária para decolar, manobrar e pousar.</p>
+                        <p class="mt-2">O funcionamento baseia-se na rotação das hélices para movimentar o ar e criar uma força de sustentação que vence a gravidade. A variação na velocidade de cada motor permite que o drone se mova em qualquer direção, suba, desça e gire em seu próprio eixo com agilidade e precisão.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Tipos Comuns de Drones</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
                             <div>
-                                <h4 class="font-semibold text-lg">Stick Esquerdo</h4>
-                                <ul class="list-disc list-inside text-slate-600">
-                                    <li><strong>Para Cima/Baixo:</strong> Controla a altitude (subir/descer).</li>
-                                    <li><strong>Para Esquerda/Direita:</strong> Controla a rotação do drone (Yaw).</li>
-                                </ul>
+                                <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone1.jpg" alt="[Imagem de um drone multi-rotor para filmagem]" class="w-full h-48 object-cover rounded-lg shadow">
+                                <h4 class="font-bold text-lg mt-2">Multi-rotor</h4>
+                                <p class="text-sm">Mais comuns para hobby e filmagens. Possuem 3, 4, 6 ou 8 motores. São estáveis e fáceis de manobrar, ideais para voos que exigem precisão e capacidade de pairar no ar.</p>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-lg">Stick Direito</h4>
-                                <ul class="list-disc list-inside text-slate-600">
-                                    <li><strong>Para Cima/Baixo:</strong> Controla o movimento para frente e para trás (Pitch).</li>
-                                    <li><strong>Para Esquerda/Direita:</strong> Controla o movimento para os lados (Roll).</li>
-                                </ul>
+                                <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone2.jpg" alt="[Imagem de um drone de asa fixa profissional para mapeamento]" class="w-full h-48 object-cover rounded-lg shadow">
+                                <h4 class="font-bold text-lg mt-2">Asa Fixa</h4>
+                                <p class="text-sm">Assemelham-se a aviões e são mais eficientes em voos de longa distância e alta velocidade. Excelentes para mapeamento agrícola, topografia e vigilância de grandes áreas.</p>
                             </div>
                         </div>
+                    </section>
+                </article>
+            </div>
+
+            <!-- Module 2 View -->
+            <div id="module-2-view" class="view">
+                 <button onclick="showPage('home-view')" class="mb-8 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Voltar
+                </button>
+                <article class="bg-white p-8 rounded-2xl shadow-sm text-slate-700 leading-relaxed space-y-8">
+                    <h2 class="text-3xl font-bold text-slate-900">Módulo 2: Anatomia do Drone</h2>
+                    <p>Cada componente de um drone desempenha um papel crucial para garantir um voo seguro e estável. Conhecer a fundo cada peça é o primeiro passo para se tornar um piloto ou técnico qualificado.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                        <section>
+                            <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone4.jpg" alt="[Imagem de um frame de drone em fibra de carbono]" class="w-full rounded-lg shadow-md mb-2">
+                            <h3 class="text-xl font-semibold text-slate-800">Frame (Estrutura)</h3>
+                            <p>O esqueleto do drone. Sustenta todos os componentes e deve ser extremamente leve e rígido. Materiais como fibra de carbono são preferidos pela alta resistência e baixo peso.</p>
+                        </section>
+                        <section>
+                            <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone6.jpg" alt="[Imagem de uma placa controladora de voo]" class="w-full rounded-lg shadow-md mb-2">
+                            <h3 class="text-xl font-semibold text-slate-800">Placa Controladora de Voo (FC)</h3>
+                            <p>O "cérebro". Processa os dados dos sensores e os comandos do piloto para controlar a velocidade de cada motor, garantindo a estabilidade e a execução das manobras.</p>
+                        </section>
+                        <section>
+                            <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone7.jpg" alt="[Imagem de um motor brushless com hélice acoplada]" class="w-full rounded-lg shadow-md mb-2">
+                            <h3 class="text-xl font-semibold text-slate-800">Motores e Hélices</h3>
+                            <p>Os motores (geralmente brushless) convertem energia elétrica em rotação. As hélices, ao girarem, criam a sustentação. O design e o balanceamento das hélices são vitais para um voo sem vibrações.</p>
+                        </section>
+                        <section>
+                            <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone8.jpg" alt="[Imagem de um ESC (Controlador Eletrônico de Velocidade)]" class="w-full rounded-lg shadow-md mb-2">
+                            <h3 class="text-xl font-semibold text-slate-800">ESC (Controlador de Velocidade)</h3>
+                            <p>Atua como um intermediário entre a controladora de voo e os motores. Ele recebe o sinal da FC e "traduz" em uma quantidade precisa de energia para cada motor, controlando sua velocidade.</p>
+                        </section>
+                         <section>
+                            <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone3.jpg" alt="[Imagem de um receptor de rádio para drones]" class="w-full rounded-lg shadow-md mb-2">
+                            <h3 class="text-xl font-semibold text-slate-800">Receptor (RX) e Transmissor (TX)</h3>
+                            <p>O sistema de comunicação. O transmissor (controle remoto) envia os comandos do piloto, e o receptor, a bordo do drone, capta esses sinais e os envia para a controladora de voo.</p>
+                        </section>
+                         <section>
+                            <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone2.jpg" alt="[Imagem de uma câmera com gimbal de 3 eixos]" class="w-full rounded-lg shadow-md mb-2">
+                            <h3 class="text-xl font-semibold text-slate-800">Câmera e Gimbal</h3>
+                            <p>Presente em drones de filmagem. O gimbal é um suporte motorizado que estabiliza a câmera em 2 ou 3 eixos, neutralizando as vibrações e movimentos do drone para garantir imagens suaves.</p>
+                        </section>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">4.2 Entendendo o Visor LCD</h3>
-                        <img src="https://www.dronetrest.com/uploads/db5290/original/2X/0/07348ea621c8b9816027c8cd3f6381023707293a.jpg" alt="Visor LCD do Controle Remoto" class="w-full rounded-lg mb-4 shadow-md object-cover max-h-[300px]">
-                        <p class="text-slate-600 mb-4">O visor LCD do controle remoto fornece informações de voo essenciais em tempo real:</p>
-                        <ul class="list-disc list-inside text-slate-600 text-sm space-y-1">
-                            <li><strong>Status do Sistema:</strong> Mostra se o drone está pronto para voar ("READY TO GO").</li>
-                            <li><strong>Sinal de GPS e RC:</strong> Barras que indicam a força do sinal do GPS e do controle.</li>
-                            <li><strong>Bateria do Drone e do RC:</strong> Níveis de bateria de ambos os equipamentos.</li>
-                            <li><strong>Telemetria de Voo:</strong> Velocidade, altitude (Height), distância (Distance) e distância do solo (Clearance).</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="mt-10">
-                    <h3 class="text-xl font-semibold text-slate-800 mb-4">4.3 Ligando os Motores (Combination Stick Command)</h3>
-                     <p class="mb-4 text-slate-700 leading-relaxed">Para ligar os motores antes da decolagem, é preciso executar um comando específico com os sticks, conhecido como CSC.</p>
-                     <img src="https://www.heliguy.com/blogs/posts/wp-content/uploads/2018/11/heliguy-dji-drones-how-to-start-stop-motors-csc-1-1.jpg" alt="Diagrama do CSC para ligar os motores" class="w-full rounded-lg shadow-md">
-                     <p class="mt-4 text-slate-600 text-center">Empurre ambos os sticks para os cantos inferiores internos ou externos para dar partida nos motores.</p>
-                </div>
-                 <div class="mt-10">
-                    <h3 class="text-xl font-semibold text-slate-800 mb-4">4.4 Modos de Voo (Interruptor)</h3>
-                     <img src="https://www.heliguy.com/blogs/posts/wp-content/uploads/2018/11/heliguy-dji-drones-mavic-pro-remote-controller-1-1.jpg" alt="Interruptor de modo de voo no controle remoto" class="w-full rounded-lg shadow-md mb-4 max-w-sm mx-auto">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-slate-100 p-4 rounded-lg">
-                            <h4 class="font-semibold">P-Mode (Positioning)</h4>
-                            <p class="text-sm text-slate-600">Usa GPS e sensores para voo estável e acesso a funções inteligentes. Posição padrão do interruptor.</p>
-                        </div>
-                        <div class="bg-slate-100 p-4 rounded-lg">
-                            <h4 class="font-semibold">S-Mode (Sport)</h4>
-                            <p class="text-sm text-slate-600">Aumenta velocidade e agilidade para voos rápidos (sensores de obstáculos desativados). Deslize o interruptor para ativar.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </article>
+            </div>
             
-            <!-- Módulo 5 -->
-            <section id="modulo-5" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                 <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 5: Manutenção Preventiva</h2>
-                 <p class="mb-6 text-slate-700 leading-relaxed">Uma rotina de cuidados aumenta a vida útil e a segurança do seu equipamento.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">5.1 Checklist de Inspeção Pré-Voo</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start"><span class="inline-block flex-shrink-0 w-5 h-5 border-2 border-slate-300 rounded mr-3 mt-1"></span><span><span class="font-semibold">Frame:</span> Verificar se há rachaduras ou parafusos soltos.</span></li>
-                            <li class="flex items-start"><span class="inline-block flex-shrink-0 w-5 h-5 border-2 border-slate-300 rounded mr-3 mt-1"></span><span><span class="font-semibold">Motores:</span> Girar manualmente e sentir se há atrito ou ruído anormal.</span></li>
-                            <li class="flex items-start"><span class="inline-block flex-shrink-0 w-5 h-5 border-2 border-slate-300 rounded mr-3 mt-1"></span><span><span class="font-semibold">Hélices:</span> Inspecionar em busca de trincas, amassados ou deformações.</span></li>
-                            <li class="flex items-start"><span class="inline-block flex-shrink-0 w-5 h-5 border-2 border-slate-300 rounded mr-3 mt-1"></span><span><span class="font-semibold">Bateria:</span> Verificar se não está estufada e se os contatos estão limpos.</span></li>
-                            <li class="flex items-start"><span class="inline-block flex-shrink-0 w-5 h-5 border-2 border-slate-300 rounded mr-3 mt-1"></span><span><span class="font-semibold">Lentes:</span> Limpar a lente da câmera e dos sensores de visão.</span></li>
+            <!-- Module 3 View -->
+             <div id="module-3-view" class="view">
+                 <button onclick="showPage('home-view')" class="mb-8 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Voltar
+                </button>
+                <article class="bg-white p-8 rounded-2xl shadow-sm space-y-8">
+                    <h2 class="text-3xl font-bold text-slate-900">Módulo 3: Pilotagem e Princípios de Voo</h2>
+                    
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">As Quatro Forças do Voo</h3>
+                        <p class="text-slate-700 leading-relaxed">Todo voo é um equilíbrio entre quatro forças aerodinâmicas. Entendê-las é fundamental para a pilotagem.</p>
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone2.jpg" alt="[Imagem de um diagrama claro das quatro forças do voo]" class="w-full max-w-lg mx-auto rounded-lg my-4">
+                        <ul class="list-disc list-inside text-slate-700 space-y-1">
+                            <li><b>Sustentação (Lift):</b> A força para cima gerada pelas hélices, que se opõe ao peso.</li>
+                            <li><b>Peso (Weight):</b> A força da gravidade que puxa o drone para baixo.</li>
+                            <li><b>Empuxo (Thrust):</b> A força que move o drone horizontalmente.</li>
+                            <li><b>Arrasto (Drag):</b> A resistência do ar que se opõe ao empuxo.</li>
                         </ul>
-                    </div>
-                     <div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">5.2 Procedimento de Calibração da Bússola</h3>
-                        <img src="https://i.ytimg.com/vi/WYg225U1v-I/maxresdefault.jpg" alt="Diagrama da calibração da bússola" class="w-full rounded-lg shadow-md mb-4">
-                        <p class="text-slate-600">Calibre a bússola sempre que voar em um novo local. Siga os passos no aplicativo:</p>
-                        <ol class="list-decimal list-inside text-slate-600 mt-2">
-                            <li>Segure o drone na horizontal e gire 360°. O app indicará a conclusão.</li>
-                            <li>Vire o drone na vertical (nariz para baixo) e gire 360°.</li>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Comandos de Voo (Modo 2)</h3>
+                        <p class="text-slate-700 leading-relaxed">O Modo 2 é o padrão mais comum para controles de drones. Os comandos são distribuídos em dois sticks.</p>
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone3.jpg" alt="[Imagem de um diagrama do controle remoto no Modo 2]" class="w-full max-w-2xl mx-auto rounded-lg shadow-md my-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                            <div><h4 class="font-semibold text-lg mb-2">Stick Esquerdo</h4><ul class="list-inside text-slate-600 space-y-1"><li><strong>Throttle (Cima/Baixo):</strong> Controla a altitude.</li><li><strong>Yaw (Esquerda/Direita):</strong> Gira o drone em seu eixo.</li></ul></div>
+                            <div><h4 class="font-semibold text-lg mb-2">Stick Direito</h4><ul class="list-inside text-slate-600 space-y-1"><li><strong>Pitch (Cima/Baixo):</strong> Move para frente e para trás.</li><li><strong>Roll (Esquerda/Direita):</strong> Move para os lados.</li></ul></div>
+                        </div>
+                    </section>
+                </article>
+            </div>
+
+            <!-- New Module 4 View -->
+            <div id="module-7-view" class="view">
+                <button onclick="showPage('home-view')" class="mb-8 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Voltar
+                </button>
+                <article class="bg-white p-8 rounded-2xl shadow-sm space-y-8 text-slate-700 leading-relaxed">
+                    <h2 class="text-3xl font-bold text-slate-900">Módulo 4: Comandos do Controle Remoto</h2>
+                    <p>No controle remoto dos drones, muitos botões e comandos são rotulados em inglês. Entender seus nomes e funções é fundamental para um uso eficaz e seguro do equipamento.</p>
+                    <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone3.jpg" alt="[Imagem de um controle remoto de drone com os comandos Throttle, Yaw, Pitch e Roll indicados]" class="w-full max-w-2xl mx-auto rounded-lg shadow-md my-4">
+
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Comandos Essenciais</h3>
+                        <ul class="list-disc list-inside space-y-2 mt-4">
+                            <li><b>Throttle (Acelerador):</b> Controla a altitude do drone. Mova o joystick esquerdo para cima para subir e para baixo para descer.</li>
+                            <li><b>Yaw (Guinada):</b> Gira o drone para a esquerda ou direita em seu próprio eixo. Controlado pelo movimento horizontal do joystick esquerdo.</li>
+                            <li><b>Pitch (Arfagem):</b> Move o drone para frente e para trás. Controlado pelo movimento vertical do joystick direito.</li>
+                            <li><b>Roll (Balanço):</b> Movimenta o drone para os lados (esquerda/direita). Controlado pelo movimento horizontal do joystick direito.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Botões e Funções Específicas</h3>
+                        <ul class="list-disc list-inside space-y-2 mt-4">
+                            <li><b>Return to Home (RTH):</b> Comando que faz o drone voltar automaticamente para o ponto de decolagem. Acionado por um botão específico.</li>
+                            <li><b>Takeoff (Decolar):</b> Inicia o voo com decolagem automática, levantando o drone a uma altura predefinida.</li>
+                            <li><b>Landing (Pouso):</b> Pousa o drone de forma controlada e automática no local atual ou no ponto de decolagem.</li>
+                            <li><b>Camera Shutter:</b> Captura fotos.</li>
+                            <li><b>Record Button:</b> Inicia ou para a gravação de vídeo.</li>
+                            <li><b>Gimbal Control:</b> Ajusta a inclinação ou o movimento panorâmico (pan) da câmera. Geralmente controlado por alavancas ou botões giratórios.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="2xl font-semibold text-slate-800">Modos de Voo Inteligentes</h3>
+                        <p>Muitos controles remotos também oferecem acesso rápido a modos de voo avançados, como:</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4">
+                            <li><b>Follow Me:</b> O drone segue automaticamente o operador.</li>
+                            <li><b>Home Lock:</b> O controle do movimento para frente/trás e esquerda/direita do drone é sempre relativo à posição do piloto, independentemente da orientação do drone.</li>
+                            <li><b>Course Lock:</b> O drone mantém um curso fixo, independentemente da orientação do piloto.</li>
+                        </ul>
+                    </section>
+                    <p class="mt-8">Esses comandos são acionados por meio de joysticks, botões dedicados ou combinações configuráveis no controle, podendo variar conforme a marca e modelo do drone. Saber interpretar e usar corretamente esses comandos é essencial para pilotar com segurança e tirar o máximo proveito do equipamento.</p>
+                </article>
+            </div>
+
+            <!-- Module 5 View (originally 4) -->
+            <div id="module-5-view" class="view">
+                <button onclick="showPage('home-view')" class="mb-8 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Voltar
+                </button>
+                <article class="bg-white p-8 rounded-2xl shadow-sm text-slate-700 leading-relaxed space-y-8">
+                    <h2 class="text-3xl font-bold text-slate-900">Módulo 5: Estabilidade e Eletrônica</h2>
+                    
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">O Papel da Controladora de Voo</h3>
+                        <p>A controladora de voo (FC) é o centro nervoso que garante a estabilidade. Ela recebe dados de múltiplos sensores, processa essas informações centenas de vezes por segundo e envia comandos precisos aos ESCs para ajustar a velocidade de cada motor individualmente, corrigindo qualquer desvio ou inclinação de forma quase instantânea.</p>
+                    </section>
+            
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Sensores e a Unidade de Medição Inercial (IMU)</h3>
+                        <p>A IMU é um chip na controladora que combina múltiplos sensores para entender a orientação e o movimento do drone no espaço.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-2">
+                            <li><strong>Giroscópio:</strong> Mede a velocidade de rotação nos três eixos (pitch, roll, yaw). Essencial para saber o quão rápido o drone está girando.</li>
+                            <li><strong>Acelerômetro:</strong> Mede a aceleração linear, incluindo a força da gravidade, permitindo detectar a inclinação do drone.</li>
+                            <li><strong>Barômetro:</strong> Mede a pressão atmosférica. Como a pressão diminui com a altitude, é usado para manter uma altura de voo constante.</li>
+                            <li><strong>GPS:</strong> Fornece coordenadas geográficas, permitindo que o drone mantenha sua posição, retorne a um ponto de origem e execute missões de voo autônomas.</li>
+                        </ul>
+                    </section>
+            
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Centro de Gravidade (CG)</h3>
+                        <p>O Centro de Gravidade é o ponto de equilíbrio do drone. Um CG bem alinhado (geralmente no centro exato do frame) é crucial. Se o peso estiver mal distribuído, os motores de um lado terão que trabalhar mais para compensar, resultando em menor eficiência, menor tempo de voo e instabilidade.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-2">
+                            <li><strong>Dica:</strong> Sempre posicione a bateria, o componente mais pesado, de forma que o drone fique perfeitamente equilibrado.</li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
+
+             <!-- Module 6 View (originally 5) -->
+             <div id="module-4-view" class="view">
+                 <button onclick="showPage('home-view')" class="mb-8 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Voltar
+                </button>
+                <article class="bg-white p-8 rounded-2xl shadow-sm space-y-8">
+                    <h2 class="text-3xl font-bold text-slate-900">Módulo 6: Manutenção e Baterias</h2>
+                    
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Checklist de Manutenção Pré-Voo</h3>
+                        <p class="text-slate-700 leading-relaxed">Uma inspeção rápida antes de cada voo pode prevenir acidentes e aumentar a vida útil do seu equipamento.</p>
+                         <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone4.jpg" alt="[Imagem de uma mão inspecionando uma hélice de drone em detalhe]" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-4">
+                        <ul class="list-disc list-inside text-slate-700 space-y-2">
+                            <li><b>Frame e Braços:</b> Procure por rachaduras ou parafusos soltos.</li>
+                            <li><b>Hélices:</b> Verifique se há trincas, amassados ou deformações. Uma hélice danificada pode se desintegrar em voo.</li>
+                            <li><b>Motores:</b> Gire-os manualmente. Devem girar livremente, sem atrito ou ruídos estranhos.</li>
+                            <li><b>Bateria:</b> Inspecione se não há estufamento ou danos. Verifique se os conectores estão limpos.</li>
+                            <li><b>Lentes da Câmera:</b> Certifique-se de que estão limpas para garantir a qualidade da imagem.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                         <h3 class="text-2xl font-semibold text-slate-800">Cuidados com a Bateria LiPo</h3>
+                         <p class="text-slate-700 leading-relaxed">Baterias de Polímero de Lítio (LiPo) são potentes, mas exigem cuidados especiais.</p>
+                         <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone5.jpg" alt="[Imagem de um carregador de baterias LiPo balanceando a carga]" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-4">
+                         <ul class="list-disc list-inside text-slate-700 space-y-2">
+                            <li><b>Nunca descarregue completamente:</b> Pouse quando a bateria atingir cerca de 20-25% de carga.</li>
+                            <li><b>Armazenamento:</b> Se não for usar a bateria por mais de alguns dias, carregue-a ou descarregue-a até a "tensão de armazenamento" (cerca de 3.8V por célula).</li>
+                            <li><b>Balanceamento:</b> Sempre use um carregador com função de balanceamento para garantir que todas as células da bateria tenham a mesma voltagem.</li>
+                            <li><b>Temperatura:</b> Evite carregar ou usar baterias muito quentes ou muito frias.</li>
+                        </ul>
+                    </section>
+
+                     <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Calculando a Autonomia de Voo</h3>
+                        <p class="text-slate-700 leading-relaxed">A autonomia depende da capacidade da bateria e do consumo do drone. Você pode estimá-la com a seguinte fórmula:</p>
+                        <div class="bg-slate-100 p-4 rounded-lg my-4 text-center text-sm sm:text-base overflow-x-auto">
+                           <p>$$ \text{Autonomia (min)} = \frac{\text{Capacidade da bateria (mAh)}}{\text{Consumo médio dos motores (mA)}} \times 60 $$</p>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed">Por exemplo, uma bateria de 5000 mAh com um drone que consome em média 20 Amperes (20000 mA) em voo pairado, terá uma autonomia aproximada de 15 minutos (5000 / 20000 * 60).</p>
+                    </section>
+                </article>
+            </div>
+
+            <!-- Module 7 View (originally 6) -->
+            <div id="module-6-view" class="view">
+                <button onclick="showPage('home-view')" class="mb-8 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Voltar
+                </button>
+                <article class="bg-white p-8 rounded-2xl shadow-sm text-slate-700 leading-relaxed space-y-8">
+                    <h2 class="text-3xl font-bold text-slate-900">Módulo 7: Exercícios Práticos para Controle de Voo</h2>
+                    <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone6.jpg" alt="[Imagem de um drone voando sobre cones de treinamento]" class="w-full rounded-lg shadow-md my-4">
+
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Exercícios Fundamentais</h3>
+                        <p>A prática constante é o segredo para se tornar um bom piloto. Comece com estes exercícios em uma área aberta e segura.</p>
+                        <ol class="list-decimal list-inside space-y-3 mt-4">
+                            <li><b>Decolagem e Pouso Suaves:</b> Suba a 1-2 metros de altura e pouse suavemente. Repita até que o movimento seja totalmente controlado.</li>
+                            <li><b>Voo Pairado (Hover):</b> Mantenha o drone estático no ar, no mesmo ponto, pelo maior tempo possível. Este é o exercício mais importante para desenvolver controle fino.</li>
+                            <li><b>Quadrado no Ar:</b> Voe para frente, para a direita, para trás e para a esquerda, desenhando um quadrado no ar e retornando ao ponto inicial.</li>
+                            <li><b>Círculos:</b> Voe em círculos suaves ao redor de um ponto de referência, mantendo o nariz do drone sempre apontado para frente.</li>
+                            <li><b>Voo de ré (Nose-in):</b> O maior desafio para iniciantes. Paire com o drone virado para você. Os comandos de roll e yaw estarão invertidos. Pratique com muito cuidado.</li>
                         </ol>
-                    </div>
-                </div>
-            </section>
+                    </section>
 
-            <!-- Módulo 6 -->
-            <section id="modulo-6" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 6: Diagnóstico e Reparo de Falhas</h2>
-                <h3 class="text-xl font-semibold text-slate-800 mb-4">6.1 Tabela de Falhas Comuns</h3>
-                <div class="overflow-x-auto mb-8">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-100">
-                                <th class="p-4 font-semibold">Sintoma</th>
-                                <th class="p-4 font-semibold">Causa Provável</th>
-                                <th class="p-4 font-semibold">Solução</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-slate-200"><td class="p-4">Drone não liga</td><td class="p-4">Bateria descarregada/defeito.</td><td class="p-4">Carregue ou troque a bateria.</td></tr>
-                            <tr class="border-b border-slate-200"><td class="p-4">Drone deriva no ar</td><td class="p-4">Interferência; descalibrado.</td><td class="p-4">Calibre bússola e IMU.</td></tr>
-                            <tr class="border-b border-slate-200"><td class="p-4">Vídeo com "jello"</td><td class="p-4">Hélices desbalanceadas.</td><td class="p-4">Troque as hélices.</td></tr>
-                            <tr><td class="p-4">Um motor não gira</td><td class="p-4">Conexão solta ou queimado.</td><td class="p-4">Verifique conexões e soldas.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                 <h3 class="text-xl font-semibold text-slate-800 mb-4">6.2 Ferramentas Essenciais</h3>
-                <div class="flex flex-wrap gap-4 text-sm">
-                    <span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full">Kit de chaves</span>
-                    <span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full">Ferro de solda</span>
-                    <span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full">Multímetro</span>
-                    <span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full">Alicates</span>
-                </div>
-            </section>
-            
-            <!-- Módulo 7 -->
-            <section id="modulo-7" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 7: Softwares e Aplicativos</h2>
-                 <p class="mb-6 text-slate-700 leading-relaxed">O aplicativo de controle (ex: DJI GO 4, DJI Fly) é sua interface principal com o drone. Conhecer sua tela é fundamental para um voo seguro.</p>
-                
-                 <div class="bg-slate-50 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold text-slate-800 mb-4">Interface de Voo (DJI GO 4)</h3>
-                    <img src="https://dronedj.com/wp-content/uploads/sites/2/2018/11/dji-go-4-manual-v4-2-flight-interface-1.jpg" alt="Interface do aplicativo DJI GO 4" class="w-full rounded-lg shadow-md mb-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 text-slate-700">
-                        <div><strong class="text-slate-800">1. Status do Sistema:</strong> Indica se o drone está pronto para voar.</div>
-                        <div><strong class="text-slate-800">4. Modo de Voo:</strong> Mostra o modo atual (P-GPS, S-Mode, etc.).</div>
-                        <div><strong class="text-slate-800">6. Sinal de GPS:</strong> Quantidade de satélites conectados.</div>
-                        <div><strong class="text-slate-800">10. Nível da Bateria:</strong> Percentual de bateria restante.</div>
-                        <div><strong class="text-slate-800">16. Botão de Disparo:</strong> Tira fotos ou inicia/para a gravação.</div>
-                        <div><strong class="text-slate-800">17. Configurações da Câmera:</strong> Ajusta ISO, obturador, etc.</div>
-                        <div><strong class="text-slate-800">19. Telemetria:</strong> Informações de Distância (D), Altura (H) e Velocidades (HS, VS).</div>
-                        <div><strong class="text-slate-800">22. Smart RTH:</strong> Botão para acionar o Return to Home.</div>
-                        <div><strong class="text-slate-800">23. Decolagem/Pouso:</strong> Aciona os procedimentos automáticos.</div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Módulo 8 -->
-            <section id="modulo-8" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 8: Segurança e Regulamentação no Brasil</h2>
-                <div class="bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-r-lg mb-6">
-                    <p><strong class="font-bold">Atenção:</strong> Voar com segurança e dentro da lei é responsabilidade de todo piloto.</p>
-                </div>
-                <h3 class="text-xl font-semibold text-slate-800 mb-4">Regras de Ouro</h3>
-                <ol class="list-decimal list-inside space-y-3">
-                    <li>Drones > 250g devem ser cadastrados no **SISANT** da ANAC.</li>
-                    <li>É preciso ter mais de 18 anos para pilotar.</li>
-                    <li>Mantenha distância mínima de 30m de pessoas não envolvidas.</li>
-                    <li>A altitude máxima padrão é de 120m (400 pés).</li>
-                    <li>**NUNCA** voe perto de aeroportos e áreas restritas.</li>
-                </ol>
-                <div class="mt-6 flex flex-wrap gap-4">
-                    <a href="https://sistemas.anac.gov.br/sisant" target="_blank" class="bg-sky-600 text-white px-5 py-2 rounded-lg hover:bg-sky-700 transition-colors">Cadastro ANAC (SISANT)</a>
-                    <a href="https://www.decea.mil.br/drone/" target="_blank" class="bg-slate-200 text-slate-800 px-5 py-2 rounded-lg hover:bg-slate-300 transition-colors">Regras DECEA</a>
-                </div>
-            </section>
-
-            <!-- Módulo 9 -->
-            <section id="modulo-9" class="module-card bg-white p-8 rounded-2xl shadow-sm mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Módulo 9: Casos Práticos e Exercícios</h2>
-                 <p class="mb-6 text-slate-700 leading-relaxed">Aplique seu conhecimento em cenários reais.</p>
-                 <div class="bg-slate-50 p-6 rounded-lg mb-6">
-                    <h3 class="text-xl font-semibold text-slate-800 mb-2">Estudo de Caso: Filmagem de Terreno</h3>
-                    <p><strong>Objetivo:</strong> Criar um vídeo de apresentação de um terreno para venda. <br><strong>Plano:</strong> Visite o local, analise obstáculos, configure a câmera para 4K/30fps e defina a altitude de RTH. <br><strong>Execução:</strong> Decole, faça um voo panorâmico lento (Point of Interest) e uma tomada subindo verticalmente para mostrar a vizinhança.</p>
-                 </div>
-                 <h3 class="text-xl font-semibold text-slate-800 mb-4">FAQ - Perguntas Frequentes</h3>
-                <div class="space-y-4">
-                    <details class="bg-slate-50 p-4 rounded-lg cursor-pointer">
-                        <summary class="font-semibold">Posso voar à noite?</summary>
-                        <p class="mt-2 text-slate-600">Sim, a lei permite se o drone estiver em sua linha de visão e com luzes. Contudo, é uma operação mais arriscada e difícil.</p>
-                    </details>
-                     <details class="bg-slate-50 p-4 rounded-lg cursor-pointer">
-                        <summary class="font-semibold">O que acontece se o drone perder o sinal?</summary>
-                        <p class="mt-2 text-slate-600">A maioria dos drones modernos ativará a função RTH (Return to Home) e voltará automaticamente para o ponto de decolagem.</p>
-                    </details>
-                     <details class="bg-slate-50 p-4 rounded-lg cursor-pointer">
-                        <summary class="font-semibold">Preciso de seguro para o meu drone?</summary>
-                        <p class="mt-2 text-slate-600">Para uso profissional, o Seguro RETA é obrigatório. Para uso recreativo, é altamente recomendado.</p>
-                    </details>
-                </div>
-            </section>
-
-            <footer class="text-center text-slate-500 mt-12 py-6 border-t border-slate-200">
-                <p>Este curso é o seu ponto de partida. A prática constante e o respeito às normas de segurança são o que farão de você um piloto de drone responsável e habilidoso. Bons voos!</p>
-            </footer>
-
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Dicas para um Treino Eficaz</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><b>Use um Simulador:</b> Simuladores de voo no computador são uma forma excelente e segura de praticar sem arriscar seu equipamento.</li>
+                            <li><b>Condições Climáticas:</b> Comece a treinar em dias sem vento. O vento adiciona um grande nível de dificuldade.</li>
+                            <li><b>Sessões Curtas:</b> É mais produtivo treinar por 15 minutos todos os dias do que por duas horas uma vez por semana. A concentração diminui em sessões longas.</li>
+                            <li><b>Segurança em Primeiro Lugar:</b> Mantenha sempre o drone no seu campo de visão e esteja preparado para desarmar os motores em caso de emergência.</li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
         </main>
+        
+        <footer class="text-center mt-12 text-slate-500">
+            <p>&copy; 2024 Manual de Drones. Todos os direitos reservados.</p>
+        </footer>
     </div>
 
     <script>
-        const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Ocultar menu ao clicar em um link
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        const views = document.querySelectorAll('.view');
+        function showPage(pageId) {
+            views.forEach(view => {
+                view.style.display = 'none';
             });
-        });
-        
-        // Ocultar menu ao clicar fora dele
-        mobileMenu.addEventListener('click', (event) => {
-            if (event.target === mobileMenu) {
-                 mobileMenu.classList.add('hidden');
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.style.display = 'block';
             }
-        });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home-view');
+        });
     </script>
 </body>
 </html>
