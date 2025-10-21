@@ -121,11 +121,21 @@
 
                      <!-- Post Card 8: Manual do Usuário -->
                     <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
-                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/manual-card.jpg" alt="[Imagem da capa do manual do Mavic Pro]" class="w-full h-48 object-cover">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/controleDrone.jpg" alt="[Imagem de um controle remoto de drone]" class="w-full h-48 object-cover">
                         <div class="p-6 flex flex-col flex-grow">
-                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 8: Manual de Operação (Exemplo Mavic Pro)</h2>
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 8: Manual de Operação (Mavic Pro)</h2>
                             <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Consulte um exemplo prático de um manual de usuário, com detalhes sobre hélices, bateria, controle e especificações técnicas.</p>
                             <button onclick="showPage('module-8-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
+                        </div>
+                    </div>
+                    
+                     <!-- Post Card 9: Guia Rápido L900 Pro SE -->
+                    <div class="post-card bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/DRONE%20L900%20Pro%20SE.png" alt="[Imagem do drone L900 Pro SE]" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2">Módulo 9: Guia Rápido (L900 Pro SE)</h2>
+                            <p class="text-slate-700 leading-relaxed mb-4 flex-grow">Um guia visual rápido com os principais componentes e procedimentos para o drone L900 Pro SE.</p>
+                            <button onclick="showPage('module-9-view')" class="mt-auto w-full bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition-colors">Ver Módulo</button>
                         </div>
                     </div>
                 </div>
@@ -139,7 +149,7 @@
                 </button>
                 <article class="bg-white p-8 rounded-2xl shadow-sm space-y-8 text-slate-700 leading-relaxed">
                     <h2 class="text-3xl font-bold text-slate-900">Módulo 1: O que é um Drone?</h2>
-                    <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/DRONE%20L900%20Pro%20SE.png" alt="[Imagem de um drone L900 Pro SE com seu controle remoto]" class="w-full rounded-lg shadow-md">
+                    <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/Drone6.jpg" alt="[Imagem de um diagrama detalhado de drone com legendas]" class="w-full rounded-lg shadow-md">
                     
                     <section>
                         <h3 class="text-2xl font-semibold text-slate-800">Definição e Funcionamento</h3>
@@ -300,6 +310,7 @@
                     
                     <section>
                         <h3 class="text-2xl font-semibold text-slate-800">O Papel da Controladora de Voo</h3>
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/ComponentesDrone6.jpg" alt="[Imagem de um close-up de uma placa controladora de voo]" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-4">
                         <p>A controladora de voo (FC) é o centro nervoso que garante a estabilidade. Ela recebe dados de múltiplos sensores, processa essas informações centenas de vezes por segundo e envia comandos precisos aos ESCs para ajustar a velocidade de cada motor individualmente, corrigindo qualquer desvio ou inclinação de forma quase instantânea.</p>
                     </section>
             
@@ -471,6 +482,36 @@
                                 </tbody>
                             </table>
                         </div>
+                    </section>
+                </article>
+            </div>
+
+            <!-- Module 9 View -->
+            <div id="module-9-view" class="view">
+                <button onclick="showPage('home-view')" class="mb-8 bg-white text-slate-700 font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Voltar
+                </button>
+                <article class="bg-white p-8 rounded-2xl shadow-sm text-slate-700 leading-relaxed space-y-8">
+                    <h2 class="text-3xl font-bold text-slate-900">Módulo 9: Guia Rápido (Exemplo L900 Pro SE)</h2>
+                    <p>Esta seção oferece um guia visual rápido para componentes chave do drone L900 Pro SE.</p>
+                    <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/DRONE%20L900%20Pro%20SE.png" alt="[Visão geral do drone L900 Pro SE e seu controle]" class="w-full max-w-2xl mx-auto rounded-lg shadow-md my-4">
+                    
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Hélices</h3>
+                        <p>A correta identificação e instalação das hélices é crucial para um voo seguro.</p>
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/elices2.png" alt="[Tabela de identificação das hélices]" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-4">
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/elices.png" alt="[Diagrama de instalação das hélices]" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-4">
+                        <p class="mt-2">Conecte as hélices com anel branco nos motores com marcas brancas, pressionando e girando no sentido de travamento.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-semibold text-slate-800">Bateria de Voo Inteligente</h3>
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/elices1.png" alt="[Imagem da bateria de voo inteligente e seu carregador]" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-4">
+                        <p>A Bateria de Voo Inteligente deve ser carregada completamente antes do primeiro uso com o carregador apropriado.</p>
+                        <img src="https://allenoxbr.github.io/Curso_Drones/Imagens/udoDaBateria.png" alt="[Diagrama da bateria com indicadores de nível e botão Power]" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-4">
+                        <h4 class="font-semibold text-lg mt-4">Uso da Bateria</h4>
+                        <p>Para ligar/desligar, pressione o botão Power uma vez, depois pressione novamente e segure por 2 segundos.</p>
                     </section>
                 </article>
             </div>
